@@ -11,6 +11,10 @@ public class Manager : MonoBehaviour {
     public Sprite[] horns;
     public Sprite[] hairs;
 
+    public Level level;
+
+    private List<Demon> demons;
+
 	private static Manager instance = null;
 	public static Manager Instance {
 		get { return instance; }
@@ -23,11 +27,8 @@ public class Manager : MonoBehaviour {
 		} else {
 			instance = this;
 		}
-	}
 
-	private void Start()
-	{
-        //AddDemon();
+        demons = new List<Demon>();
 	}
 
 	public void AddDemon() {
@@ -35,12 +36,17 @@ public class Manager : MonoBehaviour {
     }
 
     public void CreateDemon() {
-        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = 0;
-        var d = Instantiate(demonPrefab, pos, Quaternion.identity);
+        if(level.StillLeft()) {
+            var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            var d = Instantiate(demonPrefab, pos, Quaternion.identity);
+            var angles = level.GetNextDemon();
+            d.AddHands(angles);
+            demons.Add(d);
 
-        EffectManager.Instance.AddEffect(0, pos);
-        EffectManager.Instance.AddEffectToParent(1, pos, d.transform);
+            EffectManager.Instance.AddEffect(0, pos);
+            EffectManager.Instance.AddEffectToParent(1, pos, d.transform);   
+        }
     }
 
     public Sprite GetHair() {
@@ -49,5 +55,13 @@ public class Manager : MonoBehaviour {
 
     public Sprite GetHorn() {
         return horns[Random.Range(0, horns.Length)];
+    }
+
+    public void ClearDemons() {
+        foreach(var d in demons) {
+            Destroy(d.gameObject);
+        }
+
+        demons.Clear();
     }
 }

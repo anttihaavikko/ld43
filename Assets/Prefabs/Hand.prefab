@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Bits: 4294964735
   heartMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4294965247
 --- !u!120 &120586172628162196
 LineRenderer:
   m_ObjectHideFlags: 1

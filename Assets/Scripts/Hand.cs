@@ -57,7 +57,7 @@ public class Hand : MonoBehaviour {
         // check for heart
         var heartHit = Physics2D.Raycast(transform.position, v, 100f, heartMask);
 
-        if(heartHit) {
+        if(heartHit && heartHit.collider.gameObject.tag == "Heart") {
             var d = Mathf.Min(heartHit.distance, 5f) * 0.04f;
             var h = heartHit.collider.gameObject.GetComponent<Heart>();
             h.Grab(d);

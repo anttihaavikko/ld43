@@ -7,7 +7,6 @@ public class Demon : MonoBehaviour {
 
     public GameObject coll;
     public Hand handPrefab;
-    public float[] handAngles;
     public SpriteRenderer hair, beard, horns;
     public LayerMask currentMask;
 
@@ -24,29 +23,36 @@ public class Demon : MonoBehaviour {
         hair.sprite = Manager.Instance.GetHair();
         beard.sprite = Manager.Instance.GetHair();
 
+        RandomMirroring(horns.transform);
+        RandomMirroring(hair.transform);
+        RandomMirroring(beard.transform);
+
         scaleMod = Random.Range(0.8f, 1.0f);
         transform.localScale *= scaleMod;
+	}
 
+    private void RandomMirroring(Transform t) {
+        int dir = Random.value < 0.5f ? 1 : -1;
+        t.localScale = new Vector3(dir * t.localScale.x, t.localScale.y, t.localScale.z);
+    }
+
+    public void AddHands(float[] angles) {
         hands = new List<Hand>();
 
-        foreach(var angle in handAngles) {
-            float x = Mathf.Sin(angle * Mathf.Deg2Rad);
-            float y = Mathf.Cos(angle * Mathf.Deg2Rad);
+        foreach (var angle in angles)
+        {
+            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
+            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
             var pos = new Vector3(x, y, 0);
             var h = Instantiate(handPrefab, transform.position + pos * 0.6f, Quaternion.identity, transform);
-            h.transform.Rotate(new Vector3(0, 0, angle - 90f));
+            h.transform.Rotate(new Vector3(0, 0, angle));
             h.direction = new Vector2(x, y);
             hands.Add(h);
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if(Application.isEditor) {
-            if(Input.GetKeyDown(KeyCode.R)) {
-                SceneManager.LoadSceneAsync("Main");
-            }
-        }
 
         if(tracking) {
             transform.Rotate(new Vector3(0, 0, -rotationSpeed * Time.deltaTime));
