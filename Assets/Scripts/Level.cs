@@ -51,10 +51,6 @@ public class Level : MonoBehaviour {
         NextLevel();
     }
 
-    public void DelayedReset() {
-        Invoke("Reset", 1f);
-    }
-
 	public void Reset()
 	{
         Manager.Instance.KillAll();
