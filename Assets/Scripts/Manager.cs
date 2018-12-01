@@ -8,6 +8,9 @@ public class Manager : MonoBehaviour {
 
     public Demon demonPrefab;
 
+    public Sprite[] horns;
+    public Sprite[] hairs;
+
 	private static Manager instance = null;
 	public static Manager Instance {
 		get { return instance; }
@@ -31,5 +34,13 @@ public class Manager : MonoBehaviour {
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         Instantiate(demonPrefab, pos, Quaternion.identity);
+    }
+
+    public Sprite GetHair() {
+        return hairs[Random.Range(0, hairs.Length)];
+    }
+
+    public Sprite GetHorn() {
+        return horns[Random.Range(0, horns.Length)];
     }
 }

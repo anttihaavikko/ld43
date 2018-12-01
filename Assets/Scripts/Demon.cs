@@ -8,6 +8,7 @@ public class Demon : MonoBehaviour {
     public GameObject coll;
     public Hand handPrefab;
     public float[] handAngles;
+    public SpriteRenderer hair, beard, horns;
 
     private float rotationSpeed = 200f;
     private bool tracking = true;
@@ -16,6 +17,11 @@ public class Demon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        horns.sprite = Manager.Instance.GetHorn();
+        hair.sprite = Manager.Instance.GetHair();
+        beard.sprite = Manager.Instance.GetHair();
+
         hands = new List<Hand>();
 
         foreach(var angle in handAngles) {
