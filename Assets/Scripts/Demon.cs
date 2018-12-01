@@ -16,8 +16,12 @@ public class Demon : MonoBehaviour {
     private bool dead = false;
     private float scaleMod;
 
+    private EffectCamera cam;
+
 	// Use this for initialization
 	void Start () {
+
+        cam = Camera.main.GetComponent<EffectCamera>();
 
         horns.sprite = Manager.Instance.GetHorn();
         hair.sprite = Manager.Instance.GetHair();
@@ -103,8 +107,10 @@ public class Demon : MonoBehaviour {
         Manager.Instance.AddDemon();
     }
 
-    void Die() {
+    public void Die() {
         if(dead) return;
+
+        cam.BaseEffect(2f);
 
         dead = true;
 

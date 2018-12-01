@@ -69,11 +69,10 @@ public class Level : MonoBehaviour {
 
 	public void Reset()
 	{
-        Debug.Log("Reset");
+        Manager.Instance.KillAll();
 	}
 
 	public void NextLevel() {
-        Debug.Log("Next");
         holder.NextLevel();
     }
 }

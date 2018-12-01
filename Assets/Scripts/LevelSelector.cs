@@ -7,12 +7,11 @@ public class LevelSelector : MonoBehaviour {
 
 	private int current;
     private GameObject prev;
-    private Transform cam;
+    public Transform camHolder;
+
 
 	// Use this for initialization
 	void Start () {
-
-        cam = Camera.main.transform;
 
 		int idx = 0;
 
@@ -34,10 +33,11 @@ public class LevelSelector : MonoBehaviour {
 			return;
 		}
 
+        prev = transform.GetChild(current).gameObject;
+
         Manager.Instance.ClearDemons();
 
 		// deactivate current level
-        prev = transform.GetChild (current).gameObject;
         if(delayed) {
             Invoke("DeactivatePrevious", 1f);   
         } else {
@@ -50,11 +50,13 @@ public class LevelSelector : MonoBehaviour {
         var next = transform.GetChild(current);
 		next.gameObject.SetActive (true);
 
-        Tweener.Instance.MoveTo(Camera.main.transform, new Vector3(next.position.x, next.position.y, -10f), 1f, 0f, TweenEasings.QuadraticEaseInOut);
+        var p = new Vector3(next.position.x, next.position.y, -10f);
+        Tweener.Instance.MoveTo(camHolder, p, 0.7f, 0f, TweenEasings.QuadraticEaseInOut);
 	}
 
     void DeactivatePrevious() {
-        prev.SetActive(false);
+        if(prev) 
+            prev.SetActive(false);
     }
 
 	void Update() {

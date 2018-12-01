@@ -22,15 +22,15 @@ public class EffectCamera : MonoBehaviour {
 
 	void Start() {
 		filters = GetComponent<PostProcessingBehaviour>();
-		originalPos = transform.position;
-		Invoke ("StartFade", 0.5f);
+        originalPos = transform.localPosition;
+//		Invoke ("StartFade", 0.5f);
 	}
 
 	void Update() {
 		cutoffPos += Time.fixedDeltaTime / transitionTime;
 		cutoffPos = (cutoffPos > 1f) ? 1f : cutoffPos;
 		cutoff = Mathf.Lerp (prevCutoff, targetCutoff, cutoffPos);
-		transitionMaterial.SetFloat ("_Cutoff", cutoff);
+//		transitionMaterial.SetFloat ("_Cutoff", cutoff);
 
 		// chromatic aberration update
 		if (filters) {
@@ -42,9 +42,9 @@ public class EffectCamera : MonoBehaviour {
 
 		if (shakeTime > 0f) {
 			shakeTime -= Time.deltaTime;
-			transform.position = originalPos + new Vector3 (Random.Range (-shakeAmount, shakeAmount), Random.Range (-shakeAmount, shakeAmount), 0);
+            transform.localPosition = originalPos + new Vector3 (Random.Range (-shakeAmount, shakeAmount), Random.Range (-shakeAmount, shakeAmount), 0);
 		} else {
-			transform.position = originalPos;
+            transform.localPosition = originalPos;
 		}
 	}
 
@@ -52,11 +52,11 @@ public class EffectCamera : MonoBehaviour {
 		Fade (false, 0.5f);
 	}
 
-	void OnRenderImage(RenderTexture src, RenderTexture dst) {
-		if (transitionMaterial) {
-			Graphics.Blit (src, dst, transitionMaterial);
-		}
-	}
+//	void OnRenderImage(RenderTexture src, RenderTexture dst) {
+//		if (transitionMaterial) {
+//			Graphics.Blit (src, dst, transitionMaterial);
+//		}
+//	}
 
 	public void Fade(bool show, float delay) {
 		targetCutoff = show ? 1.1f : -0.1f;

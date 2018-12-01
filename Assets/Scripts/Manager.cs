@@ -68,4 +68,11 @@ public class Manager : MonoBehaviour {
 
         demons.Clear();
     }
+
+    public void KillAll() {
+        foreach (var d in demons)
+        {
+            d.Die();
+        }
+    }
 }
