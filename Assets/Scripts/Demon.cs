@@ -41,11 +41,12 @@ public class Demon : MonoBehaviour {
 
         foreach (var angle in angles)
         {
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = Mathf.Sin(angle * Mathf.Deg2Rad);
+            float a = angle + 90f;
+            float x = Mathf.Cos(a * Mathf.Deg2Rad);
+            float y = Mathf.Sin(a * Mathf.Deg2Rad);
             var pos = new Vector3(x, y, 0);
             var h = Instantiate(handPrefab, transform.position + pos * 0.6f, Quaternion.identity, transform);
-            h.transform.Rotate(new Vector3(0, 0, angle));
+            h.transform.Rotate(new Vector3(0, 0, a));
             h.direction = new Vector2(x, y);
             hands.Add(h);
         }

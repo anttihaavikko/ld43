@@ -7,9 +7,12 @@ public class LevelSelector : MonoBehaviour {
 
 	private int current;
     private GameObject prev;
+    private Transform cam;
 
 	// Use this for initialization
 	void Start () {
+
+        cam = Camera.main.transform;
 
 		int idx = 0;
 
@@ -22,7 +25,7 @@ public class LevelSelector : MonoBehaviour {
 			idx++;
 		}
 
-		ActivateLevel (0);
+		ActivateLevel (current);
 	}
 
 	public void ActivateLevel(int level, bool delayed = false) {
