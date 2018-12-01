@@ -9,6 +9,7 @@ public class LevelSelector : MonoBehaviour {
     private GameObject prev;
     public Transform camHolder;
 
+    private float zoomDir = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -73,4 +74,13 @@ public class LevelSelector : MonoBehaviour {
 	public void NextLevel(int dir = 1) {
         ActivateLevel(current + dir, true);
 	}
+
+    public void DoZoom() {
+        zoomDir = -1f;
+        Invoke("EndZoom", 1f);
+    }
+
+    void EndZoom() {
+        zoomDir = 1f;
+    }
 }

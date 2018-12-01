@@ -20,10 +20,16 @@ public class EffectCamera : MonoBehaviour {
 
 	private Vector3 originalPos;
 
+    private float zoomDir = -0.2f;
+
+    private Camera cam;
+
 	void Start() {
 		filters = GetComponent<PostProcessingBehaviour>();
         originalPos = transform.localPosition;
 //		Invoke ("StartFade", 0.5f);
+
+        cam = Camera.main;
 	}
 
 	void Update() {
@@ -46,6 +52,8 @@ public class EffectCamera : MonoBehaviour {
 		} else {
             transform.localPosition = originalPos;
 		}
+
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize + zoomDir, 5, 10);
 	}
 
 	void StartFade() {
@@ -81,4 +89,15 @@ public class EffectCamera : MonoBehaviour {
 		Shake (0.04f * mod, 0.075f * mod);
 		Chromate (0.25f * mod, 0.1f * mod);
 	}
+
+    public void DoZoom()
+    {
+        zoomDir = -zoomDir;
+        Invoke("EndZoom", 1f);
+    }
+
+    void EndZoom()
+    {
+        zoomDir = -zoomDir;
+    }
 }

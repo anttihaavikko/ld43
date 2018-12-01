@@ -73,6 +73,11 @@ public class Level : MonoBehaviour {
 	}
 
 	public void NextLevel() {
+        Camera.main.GetComponent<EffectCamera>().DoZoom();
+        Invoke("ChangeLevel", 0.5f);
+    }
+
+    void ChangeLevel() {
         holder.NextLevel();
     }
 }
