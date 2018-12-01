@@ -9,6 +9,8 @@ public class Hand : MonoBehaviour {
     public Vector2 direction;
     public Vector2[] points;
     public LayerMask mask, heartMask;
+    public GameObject aim;
+
     private Vector3 pos;
 
 	// Use this for initialization

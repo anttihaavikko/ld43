@@ -61,6 +61,10 @@ public class Demon : MonoBehaviour {
             var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = new Vector3(pos.x, pos.y, transform.position.z);   
 
+            if(Input.GetMouseButtonDown(0)) {
+                SetAiming(true);
+            }
+
             if(Input.GetMouseButton(0)) {
                 rotationSpeed = Mathf.MoveTowards(rotationSpeed, 50f, 500f * Time.deltaTime);
             }
@@ -86,6 +90,8 @@ public class Demon : MonoBehaviour {
 	}
 
     void Shoot() {
+
+        SetAiming(false);
 
         rotationSpeed = 0f;
         tracking = false;
@@ -116,8 +122,16 @@ public class Demon : MonoBehaviour {
 
         gore.transform.localScale *= scaleMod;
 
+        Manager.Instance.RemoveDemon(this);
+
         Destroy(gameObject);
 
         Manager.Instance.AddDemon();
+    }
+
+    void SetAiming(bool state) {
+        foreach(var h in hands) {
+            h.aim.SetActive(state);
+        }
     }
 }

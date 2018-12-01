@@ -83,7 +83,6 @@
     <Compile Include="Assets\Anima2D\Scripts\SpriteMesh.cs" />
     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
-    <Compile Include="Assets\Level.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -144,6 +143,7 @@
     <Compile Include="Assets\Scripts\Heart.cs" />
     <Compile Include="Assets\Scripts\HudManager.cs" />
     <Compile Include="Assets\Scripts\InputMagic.cs" />
+    <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\LevelSelector.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\Mover.cs" />

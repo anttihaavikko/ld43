@@ -57,6 +57,10 @@ public class Manager : MonoBehaviour {
         return horns[Random.Range(0, horns.Length)];
     }
 
+    public void RemoveDemon(Demon d) {
+        demons.Remove(d);
+    }
+
     public void ClearDemons() {
         foreach(var d in demons) {
             Destroy(d.gameObject);
