@@ -117,10 +117,15 @@ public class Demon : MonoBehaviour {
 
         dead = true;
 
-        EffectManager.Instance.AddEffect(Random.Range(3, 6), transform.position);
+        var col = Random.Range(3, 6);
+
+        EffectManager.Instance.AddEffect(col, transform.position);
         EffectManager.Instance.AddEffect(2, transform.position);
+        EffectManager.Instance.AddEffect(1, transform.position);
 
         var gore = EffectManager.Instance.AddEffect(6, transform.position).GetComponent<Gore>();
+
+        gore.transform.rotation = transform.rotation;
 
         gore.leftHair.sprite = hair.sprite;
         gore.rightHair.sprite = hair.sprite;
@@ -128,6 +133,8 @@ public class Demon : MonoBehaviour {
         gore.rightBeart.sprite = beard.sprite;
         gore.leftHorns.sprite = horns.sprite;
         gore.rightHorns.sprite = horns.sprite;
+
+        gore.goreColorIndex = col;
 
         gore.transform.localScale *= scaleMod;
 

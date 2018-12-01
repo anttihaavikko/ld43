@@ -152,11 +152,11 @@
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\Shine.cs" />
     <Compile Include="Assets\Scripts\SoundEffect.cs" />
+    <Compile Include="Assets\Scripts\StartArea.cs" />
     <Compile Include="Assets\Scripts\Triangulator.cs" />
     <Compile Include="Assets\Scripts\TweenAction.cs" />
     <Compile Include="Assets\Scripts\TweenEasings.cs" />
     <Compile Include="Assets\Scripts\Tweener.cs" />
-    <Compile Include="Assets\StartArea.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\Misc\ShiningSprite.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />

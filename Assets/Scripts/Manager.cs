@@ -14,6 +14,9 @@ public class Manager : MonoBehaviour {
     public Level level;
 
     private List<Demon> demons;
+    private List<GameObject> gores;
+
+    private EffectCamera cam;
 
     public GameObject pentagram;
     public SpriteRenderer pentagramRing, pentagramDots;
@@ -33,11 +36,14 @@ public class Manager : MonoBehaviour {
 		}
 
         demons = new List<Demon>();
+        gores = new List<GameObject>();
 
         pentagramColor = pentagramRing.color;
         pentagramClear = new Color(1, 1, 1, pentagramColor.a);
         pentagramRing.color = Color.clear;
         pentagramDots.color = Color.clear;
+
+        cam = Camera.main.GetComponent<EffectCamera>();
 	}
 
 	public void AddDemon() {
@@ -101,5 +107,26 @@ public class Manager : MonoBehaviour {
         {
             d.Die();
         }
+    }
+
+    public void AddGore(GameObject g)
+    {
+        gores.Add(g);
+    }
+
+    public void ClearGore()
+    {
+        foreach (var g in gores)
+        {
+            var gore = g.GetComponentInParent<Gore>();
+            cam.BaseEffect(1.2f);
+            EffectManager.Instance.AddEffect(1, g.transform.position);
+            EffectManager.Instance.AddEffect(0, g.transform.position);
+            EffectManager.Instance.AddEffect(gore.goreColorIndex, g.transform.position);
+            EffectManager.Instance.AddEffect(2, g.transform.position);
+            Destroy(g.gameObject);
+        }
+
+        gores.Clear();
     }
 }

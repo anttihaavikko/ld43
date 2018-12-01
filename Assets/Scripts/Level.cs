@@ -8,6 +8,7 @@ public class Level : MonoBehaviour {
     public string[] demons;
     public Heart[] hearts;
     public LevelSelector holder;
+    public StartArea area;
 
     private int current = 0;
 
@@ -65,7 +66,30 @@ public class Level : MonoBehaviour {
 	public void Reset()
 	{
         Manager.Instance.KillAll();
+        Invoke("DestroyGores", 1f);
+        Invoke("ResetHearts", 1.5f);
+        Invoke("StartAgain", 2f);
 	}
+
+    void DestroyGores() {
+        Manager.Instance.ClearGore();
+    }
+
+    void ResetHearts() {
+        foreach (var h in hearts)
+        {
+            if (!h.gameObject.activeInHierarchy)
+            {
+                h.gameObject.SetActive(true);
+                EffectManager.Instance.AddEffect(1, h.transform.position);
+            };
+        }
+    }
+
+    void StartAgain() {
+        current = 0;
+        area.ReEnable();
+    }
 
 	public void NextLevel() {
         Camera.main.GetComponent<EffectCamera>().DoZoom();
