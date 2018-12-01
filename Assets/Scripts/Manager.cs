@@ -47,10 +47,13 @@ public class Manager : MonoBehaviour {
 	}
 
 	public void AddDemon() {
+        CancelInvoke("CreateDemon");
         Invoke("CreateDemon", 2f);
 
         if (level.StillLeft())
         {
+            EffectManager.Instance.AddEffectToParent(1, pentagramRing.transform.position, pentagramRing.transform);
+
             Tweener.Instance.ColorTo(pentagramRing, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
             Tweener.Instance.ColorTo(pentagramDots, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
         }
@@ -96,7 +99,8 @@ public class Manager : MonoBehaviour {
 
     public void ClearDemons() {
         foreach(var d in demons) {
-            Destroy(d.gameObject);
+            if(d)
+                Destroy(d.gameObject);
         }
 
         demons.Clear();

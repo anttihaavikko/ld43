@@ -22,7 +22,7 @@ public class Shine : MonoBehaviour {
 		direction.x = mirrorParent ? mirrorParent.localScale.x * direction.x : direction.x;
 
 		if (checkRotation) {
-			float angle = transform.parent.rotation.eulerAngles.z;
+			float angle = transform.parent.rotation.eulerAngles.z + 90f;
 			float aMod = Mathf.Sign (transform.parent.lossyScale.x);
 			direction = Quaternion.Euler(new Vector3(0, 0, -angle * aMod)) * direction;
 		}

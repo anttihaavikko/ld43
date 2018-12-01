@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{5FB580CB-43FF-A081-B53D-3D2D5D878361}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ButtonAnimation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shine.cs">
     <Files>
-      <File FileName="Assets/Scripts/Demon.cs" Line="124" Column="45" />
-      <File FileName="Assets/Scripts/Hand.cs" Line="12" Column="27" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="123" Column="13" />
+      <File FileName="Assets/Scripts/Demon.cs" Line="116" Column="40" />
+      <File FileName="Assets/Scripts/Hand.cs" Line="87" Column="26" />
+      <File FileName="Assets/Scripts/Manager.cs" Line="95" Column="28" />
       <File FileName="Assets/Scripts/Heart.cs" Line="28" Column="9" />
       <File FileName="Assets/Scripts/Gore.cs" Line="9" Column="30" />
-      <File FileName="Assets/Scripts/LevelSelector.cs" Line="74" Column="14" />
-      <File FileName="Assets/Scripts/Level.cs" Line="69" Column="29" />
+      <File FileName="Assets/Scripts/LevelSelector.cs" Line="61" Column="32" />
+      <File FileName="Assets/Scripts/Level.cs" Line="56" Column="22" />
       <File FileName="Assets/Scripts/EffectCamera.cs" Line="23" Column="33" />
-      <File FileName="Assets/Scripts/StartArea.cs" Line="27" Column="25" />
+      <File FileName="Assets/Scripts/StartArea.cs" Line="29" Column="6" />
       <File FileName="Assets/Scripts/Rotator.cs" Line="17" Column="19" />
-      <File FileName="Assets/ButtonAnimation.cs" Line="16" Column="3" />
+      <File FileName="Assets/ButtonAnimation.cs" Line="10" Column="32" />
+      <File FileName="Assets/Scripts/Shine.cs" Line="25" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -10,6 +10,7 @@ public class Hand : MonoBehaviour {
     public Vector2[] points;
     public LayerMask mask, heartMask;
     public GameObject aim;
+    public Demon demon;
 
     private Vector3 pos;
 
@@ -56,19 +57,33 @@ public class Hand : MonoBehaviour {
         Tweener.Instance.MoveTo(transform, pos, delay, 0, TweenEasings.BounceEaseOut, 0);
         Invoke("HandEffect", delay - 0.1f);
 
-        // check for heart
-        var heartHit = Physics2D.Raycast(transform.position, v, 100f, heartMask);
-
-        if(heartHit && heartHit.collider.gameObject.tag == "Heart") {
-            var d = Mathf.Min(heartHit.distance, 5f) * 0.04f;
-            var h = heartHit.collider.gameObject.GetComponent<Heart>();
-            h.Grab(d);
+        if(hit.collider.gameObject.tag == "Spikes") {
+            Invoke("Die", delay);
         }
+
+        // check for heart
+        var heartHits = Physics2D.RaycastAll(transform.position, v, 100f, heartMask);
+
+        foreach(var h in heartHits) {
+            if (h && h.collider.gameObject.tag == "Heart")
+            {
+                var d = Mathf.Min(h.distance, 5f) * 0.04f;
+                var heart = h.collider.gameObject.GetComponent<Heart>();
+                heart.Grab(d);
+            } else {
+                break;
+            }
+        }
+
     }
 
     private void HandEffect() {
         gameObject.layer = 0;
         EffectManager.Instance.AddEffect(0, pos);
         EffectManager.Instance.AddEffect(1, pos);
+    }
+
+    void Die() {
+        demon.DieAndReset();
     }
 }

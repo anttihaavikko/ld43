@@ -53,7 +53,7 @@ public class Level : MonoBehaviour {
         }
 
         foreach(var h in hearts) {
-            if (h.gameObject.activeInHierarchy) {
+            if (h && h.gameObject.activeInHierarchy) {
                 Reset();
                 return;
             };
@@ -65,9 +65,9 @@ public class Level : MonoBehaviour {
 	public void Reset()
 	{
         Manager.Instance.KillAll();
-        Invoke("DestroyGores", 1f);
-        Invoke("ResetHearts", 1.5f);
-        Invoke("StartAgain", 2f);
+        Invoke("ResetHearts", 0.75f);
+        Invoke("DestroyGores", 1.75f);
+        Invoke("StartAgain", 1.25f);
 	}
 
     void DestroyGores() {
@@ -77,7 +77,7 @@ public class Level : MonoBehaviour {
     void ResetHearts() {
         foreach (var h in hearts)
         {
-            if (!h.gameObject.activeInHierarchy)
+            if (h && !h.gameObject.activeInHierarchy)
             {
                 h.gameObject.SetActive(true);
                 EffectManager.Instance.AddEffect(1, h.transform.position);

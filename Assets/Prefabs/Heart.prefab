@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1012622182174908}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.75, y: -0.33, z: 0}
+  m_LocalPosition: {x: 6.14, y: -2.2600098, z: 0}
   m_LocalScale: {x: 0.62759644, y: 0.6275962, z: 0.6275962}
   m_Children:
   - {fileID: 4777467311463530}
@@ -3872,7 +3872,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294966783
+      m_Bits: 4294962687
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -8403,7 +8403,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294966783
+      m_Bits: 4294962687
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -12934,7 +12934,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294966783
+      m_Bits: 4294962687
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

@@ -54,6 +54,7 @@ public class Demon : MonoBehaviour {
             var h = Instantiate(handPrefab, transform.position + pos * 0.6f, Quaternion.identity, transform);
             h.transform.Rotate(new Vector3(0, 0, a));
             h.direction = new Vector2(x, y);
+            h.demon = this;
             hands.Add(h);
         }
     }
@@ -89,7 +90,7 @@ public class Demon : MonoBehaviour {
                 {
                     if (h.gameObject != coll)
                     {
-                        Die();
+                        DieAndReset();
                     }
                 }
             }
@@ -108,6 +109,11 @@ public class Demon : MonoBehaviour {
         }
 
         Manager.Instance.AddDemon();
+    }
+
+    public void DieAndReset() {
+        Die();
+        Manager.Instance.level.Reset();
     }
 
     public void Die() {
@@ -138,11 +144,7 @@ public class Demon : MonoBehaviour {
 
         gore.transform.localScale *= scaleMod;
 
-        Manager.Instance.RemoveDemon(this);
-
         Destroy(gameObject);
-
-        Manager.Instance.AddDemon();
     }
 
     void SetAiming(bool state) {
