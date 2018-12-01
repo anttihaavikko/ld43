@@ -469,15 +469,12 @@ MonoBehaviour:
   coll: {fileID: 1691990381708676}
   handPrefab: {fileID: 114945173489571656, guid: 522416718edcc4220bc735d62713855a,
     type: 2}
-  handAngles:
-  - 90
-  - 270
   hair: {fileID: 212134710565506996}
   beard: {fileID: 212407326352428514}
   horns: {fileID: 212870026260616280}
   currentMask:
     serializedVersion: 2
-    m_Bits: 4294964223
+    m_Bits: 4294960127
 --- !u!114 &114879467746814634
 MonoBehaviour:
   m_ObjectHideFlags: 1

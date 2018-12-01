@@ -33,6 +33,8 @@ public class Demon : MonoBehaviour {
 
         scaleMod = Random.Range(0.8f, 1.0f);
         transform.localScale *= scaleMod;
+
+        transform.Rotate(new Vector3(0, 0, Random.Range(0, 360f)));
 	}
 
     private void RandomMirroring(Transform t) {

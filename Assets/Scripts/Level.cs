@@ -14,7 +14,6 @@ public class Level : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Manager.Instance.level = this;
-        Manager.Instance.AddDemon();
 	}
 	
 	// Update is called once per frame
@@ -42,11 +41,6 @@ public class Level : MonoBehaviour {
 
     public bool StillLeft() {
         var r = current < demons.Length;
-
-        if(!r) {
-            Invoke("CheckEnd", 1f);
-        }
-
         return r;
     }
 

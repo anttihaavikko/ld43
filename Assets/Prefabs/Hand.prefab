@@ -216,10 +216,10 @@ MonoBehaviour:
   - {x: 0, y: 0}
   mask:
     serializedVersion: 2
-    m_Bits: 4294964735
+    m_Bits: 4294960639
   heartMask:
     serializedVersion: 2
-    m_Bits: 4294965247
+    m_Bits: 4294961151
   aim: {fileID: 1394895882519846}
 --- !u!120 &120586172628162196
 LineRenderer:

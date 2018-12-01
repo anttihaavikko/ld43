@@ -46,6 +46,8 @@ public class Manager : MonoBehaviour {
 
             EffectManager.Instance.AddEffect(0, pos);
             EffectManager.Instance.AddEffectToParent(1, pos, d.transform);   
+        } else {
+            level.holder.NextLevel();
         }
     }
 
