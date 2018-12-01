@@ -20,6 +20,7 @@ public class LevelSelector : MonoBehaviour {
 		foreach(Transform child in transform) {
 			if (child.gameObject.activeSelf) {
 				current = idx;
+                break;
 			}
 
 			idx++;
@@ -53,6 +54,8 @@ public class LevelSelector : MonoBehaviour {
 
         var p = new Vector3(next.position.x, next.position.y, -10f);
         Tweener.Instance.MoveTo(camHolder, p, 0.7f, 0f, TweenEasings.QuadraticEaseInOut);
+
+        Manager.Instance.level = next.GetComponent<Level>();
 	}
 
     void DeactivatePrevious() {

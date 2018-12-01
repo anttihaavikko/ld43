@@ -12,4 +12,8 @@ public class Rotator : MonoBehaviour {
 		angle += speed * Time.deltaTime * 60f;
 		transform.localRotation = Quaternion.Euler (new Vector3 (0, 0, angle));
 	}
+
+    public void ChangeSpeed(float s) {
+        speed = s;
+    }
 }
