@@ -68,6 +68,7 @@ public class Demon : MonoBehaviour {
             transform.position = new Vector3(pos.x, pos.y, transform.position.z);   
 
             if(Input.GetMouseButtonDown(0)) {
+                Cursor.visible = false;
                 SetAiming(true);
             }
 

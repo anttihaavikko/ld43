@@ -15,6 +15,10 @@ public class Manager : MonoBehaviour {
 
     private List<Demon> demons;
 
+    public GameObject pentagram;
+    public SpriteRenderer pentagramRing, pentagramDots;
+    private Color pentagramColor, pentagramClear;
+
 	private static Manager instance = null;
 	public static Manager Instance {
 		get { return instance; }
@@ -29,14 +33,35 @@ public class Manager : MonoBehaviour {
 		}
 
         demons = new List<Demon>();
+
+        pentagramColor = pentagramRing.color;
+        pentagramClear = new Color(1, 1, 1, pentagramColor.a);
+        pentagramRing.color = Color.clear;
+        pentagramDots.color = Color.clear;
 	}
 
 	public void AddDemon() {
         Invoke("CreateDemon", 2f);
+
+        if (level.StillLeft())
+        {
+            Tweener.Instance.ColorTo(pentagramRing, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+            Tweener.Instance.ColorTo(pentagramDots, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+        }
     }
 
-    public void CreateDemon() {
+	private void Update()
+	{
+        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        pentagram.transform.position = pos;
+	}
+
+	public void CreateDemon() {
         if(level.StillLeft()) {
+            Tweener.Instance.ColorTo(pentagramRing, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+            Tweener.Instance.ColorTo(pentagramDots, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+
             var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = 0;
             var d = Instantiate(demonPrefab, pos, Quaternion.identity);
@@ -47,7 +72,7 @@ public class Manager : MonoBehaviour {
             EffectManager.Instance.AddEffect(0, pos);
             EffectManager.Instance.AddEffectToParent(1, pos, d.transform);   
         } else {
-            level.holder.NextLevel();
+            level.CheckEnd();
         }
     }
 

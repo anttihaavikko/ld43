@@ -13,6 +13,7 @@ public class Level : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Cursor.visible = false;
         Manager.Instance.level = this;
 	}
 	

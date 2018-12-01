@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{5FB580CB-43FF-A081-B53D-3D2D5D878361}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/StartArea.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Demon.cs" Line="37" Column="68" />
+      <File FileName="Assets/Scripts/Demon.cs" Line="137" Column="26" />
       <File FileName="Assets/Scripts/Hand.cs" Line="12" Column="27" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="75" Column="21" />
+      <File FileName="Assets/Scripts/Manager.cs" Line="35" Column="32" />
       <File FileName="Assets/Scripts/Heart.cs" Line="28" Column="9" />
       <File FileName="Assets/Scripts/Gore.cs" Line="13" Column="27" />
-      <File FileName="Assets/Scripts/LevelSelector.cs" Line="43" Column="43" />
-      <File FileName="Assets/Scripts/Level.cs" Line="77" Column="33" />
+      <File FileName="Assets/Scripts/LevelSelector.cs" Line="33" Column="21" />
+      <File FileName="Assets/Scripts/Level.cs" Line="45" Column="6" />
       <File FileName="Assets/Scripts/EffectCamera.cs" Line="23" Column="33" />
-      <File FileName="Assets/StartArea.cs" Line="17" Column="3" />
+      <File FileName="Assets/StartArea.cs" Line="14" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

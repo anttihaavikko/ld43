@@ -499,7 +499,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 807347071
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 10
 --- !u!212 &212090818405689864
 SpriteRenderer:
   m_ObjectHideFlags: 1
