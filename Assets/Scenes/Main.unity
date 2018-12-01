@@ -666,6 +666,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &130927378 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114947123701420112, guid: e5771a7a040b64d4bb912229a5200e4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 394681186}
+  m_Script: {fileID: 11500000, guid: ec8a16a4c6f01490bacd25f441e1df7f, type: 3}
 --- !u!1 &143244265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,8 +2649,7 @@ MonoBehaviour:
   hearts:
   - {fileID: 1038680629}
   - {fileID: 1084650402}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 130927378}
   holder: {fileID: 1727167684}
   area: {fileID: 1332526853}
 --- !u!1001 &922206061

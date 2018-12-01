@@ -16,17 +16,6 @@ public class Level : MonoBehaviour {
 	void Start () {
         Cursor.visible = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Application.isEditor)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadSceneAsync("Main");
-            }
-        }
-	}
 
     public float[] GetNextDemon() {
         string[] anglesStr = demons[current].Split(',');
@@ -60,6 +49,10 @@ public class Level : MonoBehaviour {
         }
 
         NextLevel();
+    }
+
+    public void DelayedReset() {
+        Invoke("Reset", 1f);
     }
 
 	public void Reset()

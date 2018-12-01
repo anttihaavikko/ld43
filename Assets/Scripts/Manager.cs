@@ -61,6 +61,14 @@ public class Manager : MonoBehaviour {
 
 	private void Update()
 	{
+        if (Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadSceneAsync("Main");
+            }
+        }
+
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         pentagram.transform.position = pos;
