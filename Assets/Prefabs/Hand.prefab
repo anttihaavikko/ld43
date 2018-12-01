@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 120586172628162196}
   - component: {fileID: 58874252570227640}
   - component: {fileID: 68938153783589348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,6 +183,12 @@ MonoBehaviour:
   points:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294964735
+  heartMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!120 &120586172628162196
 LineRenderer:
   m_ObjectHideFlags: 1

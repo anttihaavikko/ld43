@@ -31,9 +31,16 @@ public class Manager : MonoBehaviour {
 	}
 
 	public void AddDemon() {
+        Invoke("CreateDemon", 2f);
+    }
+
+    public void CreateDemon() {
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
-        Instantiate(demonPrefab, pos, Quaternion.identity);
+        var d = Instantiate(demonPrefab, pos, Quaternion.identity);
+
+        EffectManager.Instance.AddEffect(0, pos);
+        EffectManager.Instance.AddEffectToParent(1, pos, d.transform);
     }
 
     public Sprite GetHair() {

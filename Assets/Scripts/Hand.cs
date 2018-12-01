@@ -8,6 +8,8 @@ public class Hand : MonoBehaviour {
     public EdgeCollider2D armBody;
     public Vector2 direction;
     public Vector2[] points;
+    public LayerMask mask, heartMask;
+    private Vector3 pos;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,7 @@ public class Hand : MonoBehaviour {
 	}
 
     public void Shoot() {
+
         arm.SetPosition(0, transform.position);
         arm.SetPosition(1, transform.parent.position);
 
@@ -43,10 +46,27 @@ public class Hand : MonoBehaviour {
         v.x = (cos * tx) - (sin * ty);
         v.y = (sin * tx) + (cos * ty);
 
-        var hit = Physics2D.Raycast(transform.position, v);
+        var hit = Physics2D.Raycast(transform.position, v, 100f, mask);
 
-        var pos = new Vector3(hit.point.x, hit.point.y, transform.position.z);
+        pos = new Vector3(hit.point.x, hit.point.y, transform.position.z);
 
-        Tweener.Instance.MoveTo(transform, pos, Mathf.Min(hit.distance, 5f) * 0.04f, 0, TweenEasings.BounceEaseOut, 0);
+        var delay = Mathf.Min(hit.distance, 5f) * 0.04f;
+        Tweener.Instance.MoveTo(transform, pos, delay, 0, TweenEasings.BounceEaseOut, 0);
+        Invoke("HandEffect", delay - 0.1f);
+
+        // check for heart
+        var heartHit = Physics2D.Raycast(transform.position, v, 100f, heartMask);
+
+        if(heartHit) {
+            var d = Mathf.Min(heartHit.distance, 5f) * 0.04f;
+            var h = heartHit.collider.gameObject.GetComponent<Heart>();
+            h.Grab(d);
+        }
+    }
+
+    private void HandEffect() {
+        gameObject.layer = 0;
+        EffectManager.Instance.AddEffect(0, pos);
+        EffectManager.Instance.AddEffect(1, pos);
     }
 }

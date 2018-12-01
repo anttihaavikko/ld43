@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{5FB580CB-43FF-A081-B53D-3D2D5D878361}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Gore.cs">
     <Files>
-      <File FileName="Assets/Scripts/Demon.cs" Line="12" Column="39" />
-      <File FileName="Assets/Scripts/Hand.cs" Line="29" Column="26" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="9" Column="14" />
+      <File FileName="Assets/Scripts/Demon.cs" Line="63" Column="13" />
+      <File FileName="Assets/Scripts/Hand.cs" Line="68" Column="30" />
+      <File FileName="Assets/Scripts/Manager.cs" Line="42" Column="9" />
+      <File FileName="Assets/Scripts/Heart.cs" Line="28" Column="9" />
+      <File FileName="Assets/Scripts/Gore.cs" Line="7" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
