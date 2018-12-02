@@ -37,8 +37,6 @@ public class LevelSelector : MonoBehaviour {
 
         prev = transform.GetChild(current).gameObject;
 
-        Manager.Instance.ClearDemons();
-
 		// deactivate current level
         if(delayed) {
             Invoke("DeactivatePrevious", 2f);   
@@ -59,6 +57,8 @@ public class LevelSelector : MonoBehaviour {
 	}
 
     void DeactivatePrevious() {
+        Manager.Instance.ClearDemons();
+
         if(prev) 
             prev.SetActive(false);
     }

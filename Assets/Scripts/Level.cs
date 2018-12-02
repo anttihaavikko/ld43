@@ -102,7 +102,7 @@ public class Level : MonoBehaviour {
 	public void Reset()
 	{
         Invoke("FailSounds", 0.6f);
-        Invoke("DestroyDemons", 0.25f);
+        Invoke("DestroyDemons", 0.3f);
         Invoke("ResetHearts", 0.75f);
         Invoke("DestroyGores", 1.75f);
         Invoke("StartAgain", 1.25f);

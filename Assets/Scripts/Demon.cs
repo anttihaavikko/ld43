@@ -145,6 +145,7 @@ public class Demon : MonoBehaviour {
         EffectManager.Instance.AddEffect(col, transform.position);
         EffectManager.Instance.AddEffect(2, transform.position);
         EffectManager.Instance.AddEffect(1, transform.position);
+        EffectManager.Instance.AddEffect(7, transform.position);
 
         var gore = EffectManager.Instance.AddEffect(6, transform.position).GetComponent<Gore>();
 
