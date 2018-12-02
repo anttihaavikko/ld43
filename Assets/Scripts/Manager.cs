@@ -56,10 +56,16 @@ public class Manager : MonoBehaviour {
         {
             level.ToggleIndicator(-1, true, true);
 
+            AudioManager.Instance.PlayEffectAt(16, pentagramRing.transform.position, 0.5f);
+            AudioManager.Instance.PlayEffectAt(6, pentagramRing.transform.position, 0.5f);
+            AudioManager.Instance.PlayEffectAt(11, pentagramRing.transform.position, 0.5f);
+
             EffectManager.Instance.AddEffectToParent(1, pentagramRing.transform.position, pentagramRing.transform);
 
             Tweener.Instance.ColorTo(pentagramRing, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
             Tweener.Instance.ColorTo(pentagramDots, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+        } else {
+            level.DoEndSounds();
         }
     }
 
@@ -87,6 +93,11 @@ public class Manager : MonoBehaviour {
 	public void CreateDemon() {
         if(level.StillLeft()) {
             level.ToggleIndicator(-1, true, false);
+
+            AudioManager.Instance.PlayEffectAt(19, pentagramRing.transform.position, 1f);
+            AudioManager.Instance.PlayEffectAt(20, pentagramRing.transform.position, 1f);
+            AudioManager.Instance.PlayEffectAt(11, pentagramRing.transform.position, 0.75f);
+            AudioManager.Instance.PlayEffectAt(2, pentagramRing.transform.position, 0.75f);
 
             Tweener.Instance.ColorTo(pentagramRing, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
             Tweener.Instance.ColorTo(pentagramDots, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
@@ -145,10 +156,16 @@ public class Manager : MonoBehaviour {
             var gore = g.GetComponentInParent<Gore>();
             cam.BaseEffect(1.2f);
             EffectManager.Instance.AddEffect(1, g.transform.position);
+            EffectManager.Instance.AddEffect(7, g.transform.position);
             EffectManager.Instance.AddEffect(0, g.transform.position);
             EffectManager.Instance.AddEffect(gore.goreColorIndex, g.transform.position);
             EffectManager.Instance.AddEffect(2, g.transform.position);
+
+            AudioManager.Instance.DoExplosion(g.transform.position, 0.6f);
+
             Destroy(g.gameObject);
+
+            cam.BaseEffect(1.5f);
         }
 
         gores.Clear();

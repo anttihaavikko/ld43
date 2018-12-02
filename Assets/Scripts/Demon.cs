@@ -118,7 +118,11 @@ public class Demon : MonoBehaviour {
     public void Die() {
         if(dead) return;
 
-        cam.BaseEffect(2f);
+        Manager.Instance.level.deaths = true;
+
+        AudioManager.Instance.DoExplosion(transform.position, 1f);
+
+        cam.BaseEffect(3f);
 
         dead = true;
 

@@ -560,6 +560,7 @@ MonoBehaviour:
   - {fileID: 1476272155518394, guid: d1fb0fbea92a1455aadedc0c807efef2, type: 2}
   - {fileID: 1696301777711998, guid: 7e9d7e848df5347fbb1b3bb4515f754f, type: 2}
   - {fileID: 1236464755017326, guid: 759613a8736304aaebd012e9d57d7af3, type: 2}
+  - {fileID: 1375480777992126, guid: eeb3a2d92b39e495f8cfc32d50701273, type: 2}
 --- !u!1001 &101612748
 Prefab:
   m_ObjectHideFlags: 0
@@ -2874,6 +2875,8 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420035}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2961,6 +2964,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionMaterial: {fileID: 0}
+--- !u!165 &519420034
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_CutoffFrequency: 5000
+  m_HighpassResonanceQ: 1
+--- !u!169 &519420035
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.22727273
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &554609619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3260,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1770625752}
   indicatorArea: {fileID: 730239484}
+  deaths: 0
 --- !u!1 &629592810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4172,6 +4209,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1739915404}
   indicatorArea: {fileID: 878468391}
+  deaths: 0
 --- !u!1 &821433394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4436,6 +4474,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1332526853}
   indicatorArea: {fileID: 1239714656}
+  deaths: 0
 --- !u!1 &861353630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6551,7 +6590,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116979001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -65.8, y: 345.5, z: 1.03125}
+  m_LocalPosition: {x: -1, y: 403, z: 1.03125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1652842757}
@@ -6595,6 +6634,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1789533638}
   indicatorArea: {fileID: 1739653179}
+  deaths: 0
 --- !u!1 &1122564317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,6 +6967,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1532157728}
   indicatorArea: {fileID: 1872793032}
+  deaths: 0
 --- !u!1 &1235852048
 GameObject:
   m_ObjectHideFlags: 0
@@ -7249,6 +7290,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 959130248}
   indicatorArea: {fileID: 1062535907}
+  deaths: 0
 --- !u!1 &1297736937
 GameObject:
   m_ObjectHideFlags: 0
@@ -7414,6 +7456,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 193741947}
   indicatorArea: {fileID: 902127166}
+  deaths: 0
 --- !u!1 &1332222063
 GameObject:
   m_ObjectHideFlags: 0
@@ -7634,6 +7677,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1334737397}
+  - component: {fileID: 1334737398}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -7654,6 +7698,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334737398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334737396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00700a32f42f24efe9ea87026ad7216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curMusic: {fileID: 0}
+  musics: []
+  volume: 0.5
+  effectPrefab: {fileID: 114852473009967456, guid: 3d15b96e9a8fd4b68902e126f7cce22b,
+    type: 2}
+  effects:
+  - {fileID: 8300000, guid: 6f8378010dce141639f9d944fa001c78, type: 3}
+  - {fileID: 8300000, guid: 291b7e154894a42b29133c3eea340a26, type: 3}
+  - {fileID: 8300000, guid: 801c928dc4f734daabde1580eb39f089, type: 3}
+  - {fileID: 8300000, guid: 54fb4e2d9d28f4d0b988021f5eccde32, type: 3}
+  - {fileID: 8300000, guid: aab9fc6d109f84cf0afe1938348a4524, type: 3}
+  - {fileID: 8300000, guid: be55d34e4f3d04d1b9227c661debfbfc, type: 3}
+  - {fileID: 8300000, guid: c8f28efda8a1b411394568b95f36daae, type: 3}
+  - {fileID: 8300000, guid: ff38aaece6b504efc8d4f5c9f53f3a42, type: 3}
+  - {fileID: 8300000, guid: ea75dea5e093c45bba5477b287a21989, type: 3}
+  - {fileID: 8300000, guid: a98a17bc379ab4c20bc1b25ac0683037, type: 3}
+  - {fileID: 8300000, guid: dcc7d526edf914fa499634e11c6013f2, type: 3}
+  - {fileID: 8300000, guid: 0daff8face03942fab6548811908d5ce, type: 3}
+  - {fileID: 8300000, guid: 01cdbb20fe0544d5cb953cba2d5ec31e, type: 3}
+  - {fileID: 8300000, guid: c7fc9f4ec8b7e4563b14bb1eb65cc218, type: 3}
+  - {fileID: 8300000, guid: ae62b90fd79424821ac7a330789b52f8, type: 3}
+  - {fileID: 8300000, guid: 38584e1f53a1444b8a0ae34fb678c711, type: 3}
+  - {fileID: 8300000, guid: 63633db6df7704e5fbaec1c27c9cb2e2, type: 3}
+  - {fileID: 8300000, guid: e644ebfe8aa704858bb625da72013132, type: 3}
+  - {fileID: 8300000, guid: 85a3abb34917e42748812f1e84ee21a2, type: 3}
+  - {fileID: 8300000, guid: 906ca41c74db64a43b85a256bee6aaa0, type: 3}
+  - {fileID: 8300000, guid: d4db50771de054f358b5dc1de9880876, type: 3}
+  - {fileID: 8300000, guid: 7b1ed9b7d5dff4dd1a85e82d87b97c2a, type: 3}
+  - {fileID: 8300000, guid: 0ca7cae7f06624adb8d44f98db842f8c, type: 3}
+  - {fileID: 8300000, guid: 618e1f313a8a84d9f955258399905880, type: 3}
+  - {fileID: 8300000, guid: 21415b72443544dc9927ff5c7afe6717, type: 3}
+  - {fileID: 8300000, guid: 85a0ba974aca14913be8df92ce1e3180, type: 3}
+  lowpass: {fileID: 519420035}
+  highpass: {fileID: 519420034}
 --- !u!1 &1351159667
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,6 +8085,7 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 648174460}
   indicatorArea: {fileID: 1557666749}
+  deaths: 0
 --- !u!1 &1477496538
 GameObject:
   m_ObjectHideFlags: 0
@@ -8054,9 +8144,11 @@ MonoBehaviour:
   - 90,270,180
   hearts:
   - {fileID: 1807139293}
+  - {fileID: 1817518602}
   holder: {fileID: 1727167684}
   area: {fileID: 1029618369}
   indicatorArea: {fileID: 1368308508}
+  deaths: 0
 --- !u!1 &1478516578
 GameObject:
   m_ObjectHideFlags: 0
@@ -10503,6 +10595,13 @@ MonoBehaviour:
   holder: {fileID: 1727167684}
   area: {fileID: 1899976423}
   indicatorArea: {fileID: 884154543}
+  deaths: 0
+--- !u!114 &1817518602 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114947123701420112, guid: e5771a7a040b64d4bb912229a5200e4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 515685274}
+  m_Script: {fileID: 11500000, guid: ec8a16a4c6f01490bacd25f441e1df7f, type: 3}
 --- !u!1 &1832368313
 GameObject:
   m_ObjectHideFlags: 0

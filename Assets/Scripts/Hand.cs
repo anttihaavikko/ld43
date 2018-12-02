@@ -14,9 +14,12 @@ public class Hand : MonoBehaviour {
 
     private Vector3 pos;
 
+    private EffectCamera cam;
+
 	// Use this for initialization
 	void Start () {
         arm.enabled = false;
+        cam = Camera.main.GetComponent<EffectCamera>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,10 @@ public class Hand : MonoBehaviour {
 
         arm.SetPosition(0, transform.position);
         arm.SetPosition(1, transform.parent.position);
+
+        AudioManager.Instance.PlayEffectAt(5, transform.position, 0.5f);
+        AudioManager.Instance.PlayEffectAt(10, transform.position, 0.5f);
+        AudioManager.Instance.PlayEffectAt(13, transform.position, 0.5f);
 
         arm.enabled = true;
 
@@ -81,6 +88,12 @@ public class Hand : MonoBehaviour {
         gameObject.layer = 0;
         EffectManager.Instance.AddEffect(0, pos);
         EffectManager.Instance.AddEffect(1, pos);
+
+        AudioManager.Instance.PlayEffectAt(10, pos, 1.25f);
+        AudioManager.Instance.PlayEffectAt(18, pos, 1.5f);
+        AudioManager.Instance.PlayEffectAt(23, pos, 1f);
+
+        cam.BaseEffect(0.5f);
     }
 
     void Die() {

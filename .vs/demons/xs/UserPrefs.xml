@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{5FB580CB-43FF-A081-B53D-3D2D5D878361}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Indicator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AudioManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Demon.cs" Line="116" Column="37" />
+      <File FileName="Assets/Scripts/Demon.cs" Line="146" Column="41" />
       <File FileName="Assets/Scripts/Hand.cs" Line="87" Column="26" />
-      <File FileName="Assets/Scripts/Manager.cs" Line="71" Column="9" />
+      <File FileName="Assets/Scripts/Manager.cs" Line="84" Column="101" />
       <File FileName="Assets/Scripts/Heart.cs" Line="28" Column="9" />
       <File FileName="Assets/Scripts/Gore.cs" Line="9" Column="30" />
       <File FileName="Assets/Scripts/LevelSelector.cs" Line="61" Column="32" />
-      <File FileName="Assets/Scripts/Level.cs" Line="52" Column="6" />
+      <File FileName="Assets/Scripts/Level.cs" Line="85" Column="36" />
       <File FileName="Assets/Scripts/EffectCamera.cs" Line="23" Column="33" />
       <File FileName="Assets/Scripts/StartArea.cs" Line="23" Column="22" />
       <File FileName="Assets/Scripts/Rotator.cs" Line="17" Column="19" />
       <File FileName="Assets/Scripts/Shine.cs" Line="25" Column="63" />
-      <File FileName="Assets/Scripts/Indicator.cs" Line="7" Column="17" />
+      <File FileName="Assets/Scripts/Indicator.cs" Line="30" Column="45" />
+      <File FileName="Assets/Scripts/AudioManager.cs" Line="53" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

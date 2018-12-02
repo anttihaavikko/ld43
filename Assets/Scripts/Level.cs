@@ -11,6 +11,8 @@ public class Level : MonoBehaviour {
     public StartArea area;
     public Transform indicatorArea;
 
+    public bool deaths = false;
+
     private int current = 0;
     private List<Indicator> indicators = new List<Indicator>();
 
@@ -73,13 +75,43 @@ public class Level : MonoBehaviour {
         NextLevel();
     }
 
+    public void DoEndSounds() {
+        Invoke("EndSounds", 0.5f);
+    }
+
+    public void EndSounds() {
+
+        foreach (var h in hearts)
+        {
+            if (h && h.gameObject.activeInHierarchy)
+            {
+                AudioManager.Instance.PlayEffectAt(22, Camera.main.transform.position, 1.2f);
+                AudioManager.Instance.PlayEffectAt(25, Camera.main.transform.position, 1.5f);
+                return;
+            };
+        }
+
+        if(deaths) {
+            return;
+        }
+
+        AudioManager.Instance.PlayEffectAt(22, Camera.main.transform.position, 1.2f);
+        AudioManager.Instance.PlayEffectAt(24, Camera.main.transform.position, 1.5f);
+    }
+
 	public void Reset()
 	{
+        Invoke("FailSounds", 0.6f);
         Invoke("DestroyDemons", 0.25f);
         Invoke("ResetHearts", 0.75f);
         Invoke("DestroyGores", 1.75f);
         Invoke("StartAgain", 1.25f);
 	}
+
+    void FailSounds() {
+        AudioManager.Instance.PlayEffectAt(22, Camera.main.transform.position, 1.2f);
+        AudioManager.Instance.PlayEffectAt(25, Camera.main.transform.position, 1.5f);
+    }
 
     void DestroyDemons() {
         Manager.Instance.KillAll();
@@ -106,6 +138,7 @@ public class Level : MonoBehaviour {
     }
 
     void StartAgain() {
+        deaths = false;
         current = 0;
         area.ReEnable();
     }

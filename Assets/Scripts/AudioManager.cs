@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void BackToDefaultMusic() {
-		if (curMusic != musics [0]) {
+        if (curMusic && curMusic != musics [0]) {
 			ChangeMusic (0, 0.5f, 2f, 1f);
 		}
 	}
@@ -97,7 +97,9 @@ public class AudioManager : MonoBehaviour {
 		float targetHighpass = (doingHighpass) ? 400f : 10f;
 		float changeSpeed = 0.075f;
 
-		curMusic.pitch = Mathf.MoveTowards (curMusic.pitch, targetPitch, 0.005f * changeSpeed);
+        if(curMusic)
+		    curMusic.pitch = Mathf.MoveTowards (curMusic.pitch, targetPitch, 0.005f * changeSpeed);
+        
 		lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 750f * changeSpeed);
 		highpass.cutoffFrequency = Mathf.MoveTowards (highpass.cutoffFrequency, targetHighpass, 50f * changeSpeed);
 	}
@@ -121,7 +123,15 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void ChangeMusicVolume(float vol) {
-		curMusic.volume = vol * 1.5f;
+        if(curMusic) curMusic.volume = vol * 1.5f;
 		musVolume = vol * 1.5f;
 	}
+
+    public void DoExplosion(Vector3 pos, float vol) {
+        AudioManager.Instance.PlayEffectAt(7, pos, 1.25f * vol);
+        AudioManager.Instance.PlayEffectAt(6, pos, 1f * vol);
+        AudioManager.Instance.PlayEffectAt(2, pos, 1f * vol);
+        AudioManager.Instance.PlayEffectAt(20, pos, 1.5f * vol);
+        AudioManager.Instance.PlayEffectAt(23, pos, 2.5f * vol);
+    }
 }
