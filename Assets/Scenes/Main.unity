@@ -21196,11 +21196,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 898820f6259874dda8ef37b53e6f8a00, type: 3}
   - {fileID: 21300000, guid: ffd30a53d96b14cf4852d37eede48756, type: 3}
   - {fileID: 21300000, guid: 2c29c1b77e30c4d558fff49bb5b3c20b, type: 3}
+  - {fileID: 21300000, guid: 4f968486c7a904cbcb2c3989e031058d, type: 3}
+  - {fileID: 21300000, guid: 55ce5262816b84d95b5b8abfa441021b, type: 3}
+  - {fileID: 21300000, guid: 9d0f7ed3895d24adba72c991685989ab, type: 3}
   hairs:
   - {fileID: 21300000, guid: c1e9b40f37ae74c1d95bc01b64e03925, type: 3}
   - {fileID: 21300000, guid: ce45ea87b25884ad7bc4299b420fbdb6, type: 3}
   - {fileID: 21300000, guid: edb20ad168a2b421691c041d59b5736e, type: 3}
   - {fileID: 21300000, guid: b51aa8299a33143cb8fb77df61442c7e, type: 3}
+  - {fileID: 21300000, guid: adb256136932f4bf0874ebfeaca18154, type: 3}
+  - {fileID: 21300000, guid: f7359bc602087438ea24f8ff4b6342a4, type: 3}
+  - {fileID: 21300000, guid: bfe544d2dfb8b4b38854cb5432f1969d, type: 3}
+  - {fileID: 21300000, guid: 9892c230185534881873c2ada0c18265, type: 3}
+  - {fileID: 21300000, guid: 2647ae81e03b5472baef465ac1860592, type: 3}
   runes:
   - {fileID: 21300000, guid: c3e1ec5e665b943aa97f49a342532e6a, type: 3}
   - {fileID: 21300000, guid: 9c7c0117e29864cd9bbd9283277a2050, type: 3}
