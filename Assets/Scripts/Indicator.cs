@@ -19,6 +19,11 @@ public class Indicator : MonoBehaviour {
 	void Start () {
         used = false;
         blinking = false;
+
+        var mod = Random.Range(0.8f, 1.1f);
+        transform.localScale *= mod;
+
+        transform.localPosition += Vector3.up * Random.Range(-0.1f, 0.1f);
 	}
 	
 	// Update is called once per frame
