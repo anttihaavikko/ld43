@@ -1,6 +1,6 @@
-OSXStandalone
+WebGL
 PlayerPath?
-/Users/anttih/unity/demons/Builds/osx/Diaball.app
+/Users/anttih/unity/demons/Builds/webgl/Diaball
 SceneListBegin?
 Assets/Scenes/Main.unity
 SceneListEnd?
