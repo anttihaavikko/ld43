@@ -16,6 +16,8 @@ public class Demon : MonoBehaviour {
     private bool dead = false;
     private float scaleMod;
 
+    private float slowTime = 0f;
+
     private EffectCamera cam;
 
 	// Use this for initialization
@@ -69,15 +71,21 @@ public class Demon : MonoBehaviour {
 
             if(Input.GetMouseButtonDown(0)) {
                 Cursor.visible = false;
+                AudioManager.Instance.targetPitch = 0.8f;
                 SetAiming(true);
             }
 
             if(Input.GetMouseButton(0)) {
                 rotationSpeed = Mathf.MoveTowards(rotationSpeed, 50f, 500f * Time.deltaTime);
+
+                slowTime += Time.deltaTime;
+
+                cam.Chromate(slowTime, 0.05f);
             }
 
             if (Input.GetMouseButtonUp(0))
             {
+                AudioManager.Instance.targetPitch = 1f;
                 Shoot();
             }
 

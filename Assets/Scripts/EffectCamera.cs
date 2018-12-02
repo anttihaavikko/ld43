@@ -40,7 +40,7 @@ public class EffectCamera : MonoBehaviour {
 
 		// chromatic aberration update
 		if (filters) {
-			chromaAmount = Mathf.MoveTowards (chromaAmount, 0, Time.deltaTime * chromaSpeed);
+			chromaAmount = Mathf.MoveTowards (chromaAmount, 0, Time.deltaTime * 0.01f);
 			ChromaticAberrationModel.Settings g = filters.profile.chromaticAberration.settings;
 			g.intensity = chromaAmount;
 			filters.profile.chromaticAberration.settings = g;
