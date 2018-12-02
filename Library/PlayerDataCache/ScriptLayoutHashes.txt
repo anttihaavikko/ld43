@@ -199,3 +199,4 @@ a9163c36ef6723526bae045b5d51e2bb Assembly-CSharp.dll:.Indicator
 c592ca35e5d1fe9a58f9e4928dc38bb5 Assembly-CSharp.dll:.BoneToLine
 86189e37e07ec3e08bb31c730f30f7eb Assembly-CSharp.dll:.SoundOnCollision
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Tentacle
+650c1e412dac0323d37ae3023565f947 Assembly-CSharp.dll:.Dimmer

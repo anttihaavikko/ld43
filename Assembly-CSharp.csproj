@@ -134,6 +134,7 @@
     <Compile Include="Assets\Scripts\BoxOutlinerScript.cs" />
     <Compile Include="Assets\Scripts\ButtonAnimation.cs" />
     <Compile Include="Assets\Scripts\Demon.cs" />
+    <Compile Include="Assets\Scripts\Dimmer.cs" />
     <Compile Include="Assets\Scripts\EffectCamera.cs" />
     <Compile Include="Assets\Scripts\EffectManager.cs" />
     <Compile Include="Assets\Scripts\Face.cs" />
