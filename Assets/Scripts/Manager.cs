@@ -26,6 +26,9 @@ public class Manager : MonoBehaviour {
 
     public Indicator indicatorPrefab;
 
+    public Transform quitMessage;
+    private float quitTimer = 0f;
+
 	private static Manager instance = null;
 	public static Manager Instance {
 		get { return instance; }
@@ -81,10 +84,35 @@ public class Manager : MonoBehaviour {
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            Tweener.Instance.ScaleTo(quitMessage, Vector3.one, 0.4f, 0f, TweenEasings.BounceEaseOut);
+            CancelInvoke("HideQuitMessage");
+            Invoke("HideQuitMessage", 3f);
+            quitTimer = 0f;
+            AudioManager.Instance.PlayEffectAt(3, Manager.instance.level.transform.position - new Vector3(10f, 5f, 0f), 1f);
+            AudioManager.Instance.PlayEffectAt(11, Manager.instance.level.transform.position - new Vector3(10f, 5f, 0f), 0.6f);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            quitTimer += Time.deltaTime;
+
+            if(quitTimer > 1.2f) {
+                Application.Quit();
+            }
+        }
+
         var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0;
         pentagram.transform.position = pos;
 	}
+
+    void HideQuitMessage() {
+        Tweener.Instance.ScaleTo(quitMessage, new Vector3(0, 1f, 1f), 0.2f, 0f, TweenEasings.QuarticEaseIn);
+        AudioManager.Instance.PlayEffectAt(3, Manager.instance.level.transform.position - new Vector3(10f, 5f, 0f), 1f);
+        AudioManager.Instance.PlayEffectAt(11, Manager.instance.level.transform.position - new Vector3(10f, 5f, 0f), 0.6f);
+        Cursor.visible = false;
+    }
 
     public void CancelCreate() {
         CancelInvoke("CreateDemon");

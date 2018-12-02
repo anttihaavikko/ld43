@@ -12,7 +12,7 @@ public class Indicator : MonoBehaviour {
     public bool used, blinking;
     private float blinkTimer;
 
-    private Color offColor = new Color(0.3f, 0.3f, 0.3f);
+    private Color offColor = new Color(0.5f, 0.5f, 0.5f);
     private Color onColor = new Color(1f, 1f, 1f);
 
 	// Use this for initialization

@@ -20,5 +20,7 @@ public class Rune : MonoBehaviour {
         if(canColor) {
             sprite.color = Manager.Instance.GetRuneColor();
         }
+
+        transform.localScale *= Random.Range(0.8f, 1.2f);
 	}
 }

@@ -37,6 +37,12 @@ public class Demon : MonoBehaviour {
         transform.localScale *= scaleMod;
 
         transform.Rotate(new Vector3(0, 0, Random.Range(0, 360f)));
+
+        Vector3 theSize = transform.localScale;
+        transform.localScale = Vector3.zero;
+        Tweener.Instance.ScaleTo(transform, theSize, 0.3f, 0f, TweenEasings.BounceEaseOut);
+
+        Cursor.visible = false;
 	}
 
     private void RandomMirroring(Transform t) {

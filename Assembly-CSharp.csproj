@@ -130,6 +130,7 @@
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AutoEnd.cs" />
+    <Compile Include="Assets\Scripts\BoneToLine.cs" />
     <Compile Include="Assets\Scripts\BoxOutlinerScript.cs" />
     <Compile Include="Assets\Scripts\ButtonAnimation.cs" />
     <Compile Include="Assets\Scripts\Demon.cs" />
