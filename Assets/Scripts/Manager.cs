@@ -22,6 +22,8 @@ public class Manager : MonoBehaviour {
     public SpriteRenderer pentagramRing, pentagramDots;
     private Color pentagramColor, pentagramClear;
 
+    public Indicator indicatorPrefab;
+
 	private static Manager instance = null;
 	public static Manager Instance {
 		get { return instance; }
@@ -52,6 +54,8 @@ public class Manager : MonoBehaviour {
 
         if (level.StillLeft())
         {
+            level.ToggleIndicator(-1, true, true);
+
             EffectManager.Instance.AddEffectToParent(1, pentagramRing.transform.position, pentagramRing.transform);
 
             Tweener.Instance.ColorTo(pentagramRing, pentagramColor, 0.5f, 0f, TweenEasings.CubicEaseInOut);
@@ -74,8 +78,16 @@ public class Manager : MonoBehaviour {
         pentagram.transform.position = pos;
 	}
 
+    public void CancelCreate() {
+        CancelInvoke("CreateDemon");
+        Tweener.Instance.ColorTo(pentagramRing, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+        Tweener.Instance.ColorTo(pentagramDots, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
+    }
+
 	public void CreateDemon() {
         if(level.StillLeft()) {
+            level.ToggleIndicator(-1, true, false);
+
             Tweener.Instance.ColorTo(pentagramRing, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
             Tweener.Instance.ColorTo(pentagramDots, Color.clear, 0.5f, 0f, TweenEasings.CubicEaseInOut);
 

@@ -12,7 +12,7 @@ public class Demon : MonoBehaviour {
 
     private float rotationSpeed = 200f;
     private bool tracking = true;
-    private List<Hand> hands;
+    private List<Hand> hands = new List<Hand>();
     private bool dead = false;
     private float scaleMod;
 
@@ -43,7 +43,6 @@ public class Demon : MonoBehaviour {
     }
 
     public void AddHands(float[] angles) {
-        hands = new List<Hand>();
 
         foreach (var angle in angles)
         {
@@ -143,6 +142,8 @@ public class Demon : MonoBehaviour {
         gore.goreColorIndex = col;
 
         gore.transform.localScale *= scaleMod;
+
+        Manager.Instance.CancelCreate();
 
         Destroy(gameObject);
     }

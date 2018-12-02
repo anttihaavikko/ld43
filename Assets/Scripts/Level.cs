@@ -9,12 +9,28 @@ public class Level : MonoBehaviour {
     public Heart[] hearts;
     public LevelSelector holder;
     public StartArea area;
+    public Transform indicatorArea;
 
     private int current = 0;
+    private List<Indicator> indicators = new List<Indicator>();
 
 	// Use this for initialization
 	void Start () {
         Cursor.visible = false;
+
+        for (int j = 0; j < demons.Length; j++) {
+            string[] anglesStr = demons[j].Split(',');
+            float[] angles = new float[anglesStr.Length];
+            for (int i = 0; i < anglesStr.Length; i++)
+            {
+                angles[i] = float.Parse(anglesStr[i]);
+            }
+
+            var ind = Instantiate(Manager.Instance.indicatorPrefab, Vector3.zero, Quaternion.identity, indicatorArea);
+            ind.transform.localPosition = new Vector3(j * 0.7f, 0, 0);
+            ind.AddHands(angles);
+            indicators.Add(ind);
+        }
 	}
 
     public float[] GetNextDemon() {
@@ -27,6 +43,12 @@ public class Level : MonoBehaviour {
         current++;
 
         return angles;
+    }
+
+    public void ToggleIndicator(int i, bool u, bool b) {
+        int idx = i != -1 ? i : current;
+        indicators[idx].blinking = b;
+        indicators[idx].used = u;
     }
 
     public bool StillLeft() {
@@ -53,11 +75,15 @@ public class Level : MonoBehaviour {
 
 	public void Reset()
 	{
-        Manager.Instance.KillAll();
+        Invoke("DestroyDemons", 0.25f);
         Invoke("ResetHearts", 0.75f);
         Invoke("DestroyGores", 1.75f);
         Invoke("StartAgain", 1.25f);
 	}
+
+    void DestroyDemons() {
+        Manager.Instance.KillAll();
+    }
 
     void DestroyGores() {
         Manager.Instance.ClearGore();
@@ -71,6 +97,11 @@ public class Level : MonoBehaviour {
                 h.gameObject.SetActive(true);
                 EffectManager.Instance.AddEffect(1, h.transform.position);
             };
+        }
+
+        for (int i = 0; i < indicators.Count; i++)
+        {
+            ToggleIndicator(i, false, false);
         }
     }
 
