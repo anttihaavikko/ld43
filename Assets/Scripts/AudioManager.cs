@@ -104,8 +104,8 @@ public class AudioManager : MonoBehaviour {
         if(curMusic)
 		    curMusic.pitch = Mathf.MoveTowards (curMusic.pitch, targetPitch, 0.05f * changeSpeed);
         
-		lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 1200f * changeSpeed);
-		highpass.cutoffFrequency = Mathf.MoveTowards (highpass.cutoffFrequency, targetHighpass, 100f * changeSpeed);
+		//lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 1200f * changeSpeed);
+		//highpass.cutoffFrequency = Mathf.MoveTowards (highpass.cutoffFrequency, targetHighpass, 100f * changeSpeed);
 	}
 
 	public void PlayEffectAt(AudioClip clip, Vector3 pos, float volume, bool pitchShift = true) {
