@@ -10,6 +10,8 @@ public class Manager : MonoBehaviour {
 
     public Sprite[] horns;
     public Sprite[] hairs;
+    public Sprite[] runes;
+    public Color[] runeColors;
 
     public Level level;
 
@@ -122,6 +124,16 @@ public class Manager : MonoBehaviour {
 
     public Sprite GetHorn() {
         return horns[Random.Range(0, horns.Length)];
+    }
+
+    public Sprite GetRune()
+    {
+        return runes[Random.Range(0, runes.Length)];
+    }
+
+    public Color GetRuneColor()
+    {
+        return runeColors[Random.Range(0, runeColors.Length)];
     }
 
     public void RemoveDemon(Demon d) {
