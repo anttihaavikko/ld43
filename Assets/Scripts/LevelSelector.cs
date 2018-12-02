@@ -65,13 +65,17 @@ public class LevelSelector : MonoBehaviour {
 
 	void Update() {
 
-		if (Input.GetKeyDown (KeyCode.KeypadPlus)) {
-			NextLevel ();
-		}
+        if(Application.isEditor) {
+            if (Input.GetKeyDown(KeyCode.KeypadPlus))
+            {
+                NextLevel();
+            }
 
-		if (Input.GetKeyDown (KeyCode.KeypadMinus)) {
-			NextLevel (-1);
-		}
+            if (Input.GetKeyDown(KeyCode.KeypadMinus))
+            {
+                NextLevel(-1);
+            }   
+        }
 	}
 
 	public void NextLevel(int dir = 1) {

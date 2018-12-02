@@ -158,6 +158,7 @@
     <Compile Include="Assets\Scripts\SoundEffect.cs" />
     <Compile Include="Assets\Scripts\SoundOnCollision.cs" />
     <Compile Include="Assets\Scripts\StartArea.cs" />
+    <Compile Include="Assets\Scripts\Tentacle.cs" />
     <Compile Include="Assets\Scripts\Triangulator.cs" />
     <Compile Include="Assets\Scripts\TweenAction.cs" />
     <Compile Include="Assets\Scripts\TweenEasings.cs" />
