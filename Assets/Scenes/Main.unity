@@ -17534,7 +17534,9 @@ MonoBehaviour:
   demons:
   - 90,270
   - 90,180
-  hearts: []
+  hearts:
+  - {fileID: 1286192617}
+  - {fileID: 1286192617}
   holder: {fileID: 1727167684}
   area: {fileID: 461293745}
   indicatorArea: {fileID: 503070511}
@@ -44626,6 +44628,12 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1286192617 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114947123701420112, guid: e5771a7a040b64d4bb912229a5200e4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2049593199}
+  m_Script: {fileID: 11500000, guid: ec8a16a4c6f01490bacd25f441e1df7f, type: 3}
 --- !u!1 &1289860303
 GameObject:
   m_ObjectHideFlags: 0
